@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="src/script.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card w-75">
+        <div class="card-body">
+          <form id="search-weather">
+            <input
+              type="text"
+              class="search"
+              placeholder="Find Your City"
+              autocomplete="off"
+              autofocus="on"
+              id="weather"
+            />
+            <input type="submit" id="submit-city" value="search" />
+          </form>
+          <h5 id="card-title" class="card-title">Nashville</h5>
+          <h2>Today's Date</h2>
+          <div id="temp-day" class="col-4">˚F</div>
+          <div class="col-4">🌧</div>
+          <br />
+          <div class="float-left">
+            <div class="col-6">Feels Like</div>
+            <div id="feels-like"></div>
+            <div>⛅️</div>
+          </div>
+          <br />
+          <div class="col-4">Looks Like</div>
+          <div id="description" class="col-4"></div>
+          <div class="col-4">☀️</div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="src/script.js"></script>
+  <script
+    src="https://kit.fontawesome.com/0e4adee97a.js"
+    crossorigin="anonymous"
+  ></script>
+</html>
