@@ -1,0 +1,38 @@
+h1,
+h2 {
+  text-align: center;
+}
+h2 {
+  font-size: 20px;
+}
+.card-body {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+.card-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+.weather {
+  font-size: 12px;
+}
+#search-weather {
+  position: inline;
+  width: 20%;
+  left: 30px;
+  margin: 10px;
+}
+#submit-city {
+  position: relative;
+  margin: 10px;
+  left: 100px;
+}
+#current-location {
+  position: relative;
+  display: block;
+  margin: 10px;
+  padding: 10px 10px;
+}
