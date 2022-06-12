@@ -46,5 +46,11 @@ function searchCity(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
-let form = document.querySelector("#weather");
-form.addEventListener("submit", searchCity);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let input = document.querySelector("#weather");
+  searchCity(input.value);
+}
+let form = document.querySelector("#search-weather");
+form.addEventListener("submit", handleSubmit);
