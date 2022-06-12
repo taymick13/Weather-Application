@@ -21,8 +21,9 @@ function formatDate(date) {
 
   return `${day} ${hours}:${minutes}`;
 }
-let dateElement = document.querySelector("h2");
+let dateElement = document.querySelector("#date");
 let currentDate = new Date();
+
 dateElement.innerHTML = formatDate(currentDate);
 
 //weather
