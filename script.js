@@ -27,23 +27,19 @@ dateElement.innerHTML = formatDate(currentDate);
 
 //weather
 function showWeather(response) {
-  let cityInput = document.querySelector("#search-weather");
-  h5.innerHTML = `${cityInput.value}`;
   let cardName = document.querySelector("#card-title");
   cardName.innerHTML = response.data.name;
   let tempDay = document.querySelector("#temp-day");
   tempDay.innerHTML = Math.round(response.data.main.temp);
   let feelsLike = document.querySelector("#feels-like");
   feelsLike.innerHTML = Math.round(response.data.main.feels_like);
-  let description = document.querySelector("#desricption");
+  let description = document.querySelector("#description");
   description.innerHTML = response.data.weather[0].main;
 }
 //search city
-function searchCity(event) {
-  event.preventDefault();
-
+function searchCity(city) {
   let apiKey = `0e8c9bd3a0b9e6f1ec3e74301ee25378`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
 
