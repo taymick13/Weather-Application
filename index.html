@@ -16,38 +16,48 @@
   </head>
   <body>
     <div class="container">
-      <div class="card w-100">
-        <div class="card-body">
-          <form id="search-weather">
+      <div class="weather-wrap">
+      <div class="weather-app"> 
+          <form id="search-weather" class="mb-3">
+            <div class="row">
             <input
-              type="text"
-              class="search"
+              type="search"
+              class="form-control"
               placeholder="Find Your City"
               autocomplete="off"
-              autofocus="on"
               id="weather"
             />
-            <input type="submit" id="submit-city" value="search" />
+            </div>
+            <div class="col-3">
+            <input type="submit" id="submit-city" value="search" class="btn btn-primary w-100" />
+            </div>
+          </div>
           </form>
           <hr/>
-          <table id="table">
-            <td id="card-title" class="card-title"> ☀️<br/>
-              Nashville
-            </td>
-            <th id="date">Today's Date</th>
-
-            <td id="info" style=width:50%;>
-              <ul id="lists">
-                <li id="temp-day"> ˚F</li>
-                <br /><hr/>
-                <li>Feels Like</li>
-                <li id="feels-like"></li>
-                <br /><hr/>
-                <li>Looks Like</li>
-                <li id="description" class="col-4"></li>
+          <div class="overview">
+            <h1 id="city-name"></h1>
+            <ul id="lists">
+              <li>Last Updated: <span id="date"></span></li>
+              <li id="description"></li>
+            </ul>
+</div>
+            <div class="row">
+              <div class="col-6">
+                <div class="clearfix weather-temperature">
+                  <img src="" alt="Clear" id="icon" class="float-left"/>
+                  <div class="float left">
+                <strong id="temp-day"></strong
+                  ><span class="units">F˚</span>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="col=6">
+                    <ul>
+                <li>Humidity: <span id="humidity">%</span></li>
+                <li>Wind: <span id="wind"></span>m/h</li>
               </ul>
-            </td>
-          </table>
+              </div>
+              </div>
           <hr/>
           <h5>5 Day Outlook</h5>
         <div class="row">
@@ -81,14 +91,13 @@
         </div>
       </div>
         </div>
-      </div>
-    </div>
-   <footer>  <div> <a
+        <small> <a
     id="github-link"
     href="https://github.com/taymick13/Weather-Application">
     GitHub</a>
+        </small>
+    </div>
 </div>
-</footer>
   </body>
   <script src="script.js"></script>
   <script

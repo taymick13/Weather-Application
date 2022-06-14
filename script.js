@@ -28,14 +28,14 @@ dateElement.innerHTML = formatDate(currentDate);
 
 //weather
 function showWeather(response) {
-  let cardName = document.querySelector("#card-title");
+  let cardName = document.querySelector("#city-name");
   cardName.innerHTML = response.data.name;
   let tempDay = document.querySelector("#temp-day");
   tempDay.innerHTML = Math.round(response.data.main.temp);
-  let feelsLike = document.querySelector("#feels-like");
-  feelsLike.innerHTML = Math.round(response.data.main.feels_like);
   let description = document.querySelector("#description");
   description.innerHTML = response.data.weather[0].main;
+  let windElement = document.querySelector("wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 //search city
 function searchCity(city) {
