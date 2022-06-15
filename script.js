@@ -32,9 +32,9 @@ function showWeather(response) {
   let cityName = document.querySelector("#city-name");
   let tempDay = document.querySelector("#temp-day");
   let descriptionElement = document.querySelector("#description");
-  let windElement = document.querySelector("wind");
-  let humidityElement = document.querySelector("humidity");
-  let iconElement = document.querySelector("icon");
+  let windElement = document.querySelector("#wind");
+  let humidityElement = document.querySelector("#humidity");
+  let iconElement = document.querySelector("#icon");
 
   celciusTemperature = response.data.main.temp;
 
@@ -52,7 +52,7 @@ function showWeather(response) {
 //search city
 function searchCity(city) {
   let apiKey = `0e8c9bd3a0b9e6f1ec3e74301ee25378`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -63,17 +63,17 @@ function handleSubmit(event) {
 }
 function showFahreinheitTemperature(event) {
   event.preventDefault();
-  celciuslink.classList.remove("active");
-  fahrenheitlink.classList.add("active");
-  let fahreinheitTemperature = (celciusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
+  celciusLink.classList.remove("active");
+  fahreinheitLink.classList.add("active");
+  let fahreinheitTemperature = (celciusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahreinheitTemperature);
 }
 
 function showCelciusTemperature(event) {
   event.preventDefault();
-  celciuslink.classList.add("active");
-  fahrenheitlink.classList.remove("active");
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celciusTemperature);
 }
@@ -83,8 +83,10 @@ let celciusTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let fahrenheitlink = document.querySelector("#f-link");
-fahrenheitlink.addEventListener("click", showFahreinheitTemperature);
+let fahrenheitLink = document.querySelector("#fahreinheitLink");
+fahrenheitLink.addEventListener("click", showFahreinheitTemperature);
 
-let celciuslink = document.querySelector("#c-link");
-celciuslink.addEventListener("click", showCelciusTemperature);
+let celciusLink = document.querySelector("#celciusLink");
+celciusLink.addEventListener("click", showCelciusTemperature);
+
+searchCity("Nashville");
