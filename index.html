@@ -31,7 +31,7 @@
                   type="search"
                   placeholder="Search Your City"
                   class="form-control"
-                  id="city-name"
+                  id="weather"
                   autocomplete="off"
                 />
               </div>
@@ -45,7 +45,7 @@
             </div>
           </form>
           <div class="overview">
-            <h1 id="city">Nashville</h1>
+            <h1 id="city-name">Nashville</h1>
             <ul>
               <li>Last Upated: <span id="date"></span></li>
               <li id="description"></li>
@@ -56,8 +56,11 @@
               <div class="clearfix weather-temperature">
                 <img src="" alt="Clear" id="icon" class="float-left" />
                 <div class="float-left">
-                  <strong id="temperature"></strong
-                  ><span class="units" class="active"><a href="#" id="c-link">˚C</a> | <a href="#" id="f-link">˚F</a></span>
+                  <strong id="temp-day"></strong
+                  ><span class="units" class="active"
+                    ><a href="#" id="c-link">˚C</a> |
+                    <a href="#" id="f-link">˚F</a></span
+                  >
                 </div>
               </div>
             </div>
@@ -67,33 +70,6 @@
                 <li>Wind: <span id="wind"></span>m/h</li>
               </ul>
             </div>
-          </div>
-          <h5>5 Day Outlook</h5>
-        <div class="row">
-          <div class="col-sm border">
-            <p>Monday</p>
-            <p>☀️</p>
-            <p>85-90°</p>
-          </div>
-          <div class="col-sm border">
-            <p>Tuesday</p>
-            <p >☀️</p>
-            <p>82-95°</p>
-          </div>
-          <div class="col-sm border">
-            <p>Wednesday</p>
-            <p>☀️</p>
-            <p>91-100°</p>
-          </div>
-          <div class="col-sm border">
-            <p>Thursday</p>
-            <p>☀️</p>
-            <p>88-100°</p>
-          </div>
-          <div class="col-sm border">
-            <p>Friday</p>
-            <p>☀️</p>
-            <p>89-95°</p>
           </div>
           <small
             ><a

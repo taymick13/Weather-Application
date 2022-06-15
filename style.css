@@ -50,7 +50,7 @@ li:first-letter {
   line-height: 1;
   font-weight: 400;
 }
-.weather-temperature units {
+.weather-temperature .units {
   position: relative;
   font-size: 16px;
   top: -34px;

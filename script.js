@@ -28,9 +28,10 @@ dateElement.innerHTML = formatDate(currentDate);
 
 //weather
 function showWeather(response) {
+  console.log(response.data);
   let cityName = document.querySelector("#city-name");
   let tempDay = document.querySelector("#temp-day");
-  let description = document.querySelector("#description");
+  let descriptionElement = document.querySelector("#description");
   let windElement = document.querySelector("wind");
   let humidityElement = document.querySelector("humidity");
   let iconElement = document.querySelector("icon");
@@ -39,8 +40,8 @@ function showWeather(response) {
 
   cityName.innerHTML = response.data.name;
   tempDay.innerHTML = Math.round(celciusTemperature);
-  description.innerHTML = response.data.weather[0].main;
-  windElement.innerHTML = Math.round(response.data.wind.speed);
+  descriptionElement.innerHTML = response.data.weather[0].main;
+  windElement.innerHTML = response.data.wind.speed;
   humidityElement.innerHTML = response.data.main.humidity;
   iconElement.setAttribute(
     "src",
@@ -79,7 +80,7 @@ function showCelciusTemperature(event) {
 
 let celciusTemperature = null;
 
-let form = document.querySelector("#search-weather");
+let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let fahrenheitlink = document.querySelector("#f-link");
@@ -87,5 +88,3 @@ fahrenheitlink.addEventListener("click", showFahreinheitTemperature);
 
 let celciuslink = document.querySelector("#c-link");
 celciuslink.addEventListener("click", showCelciusTemperature);
-
-search("Nashville");
