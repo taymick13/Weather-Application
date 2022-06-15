@@ -12,53 +12,62 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Montserrat:wght@100&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="weather-wrap">
-      <div class="weather-app"> 
-          <form id="search-weather" class="mb-3">
+        <div class="weather-app">
+          <form id="search-form" class="mb-3">
             <div class="row">
-            <input
-              type="search"
-              class="form-control"
-              placeholder="Find Your City"
-              autocomplete="off"
-              id="weather"
-            />
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Search Your City"
+                  class="form-control"
+                  id="city-name"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary w-100"
+                />
+              </div>
             </div>
-            <div class="col-3">
-            <input type="submit" id="submit-city" value="search" class="btn btn-primary w-100" />
-            </div>
-          </div>
           </form>
-          <hr/>
           <div class="overview">
-            <h1 id="city-name"></h1>
-            <ul id="lists">
-              <li>Last Updated: <span id="date"></span></li>
+            <h1 id="city">Nashville</h1>
+            <ul>
+              <li>Last Upated: <span id="date"></span></li>
               <li id="description"></li>
             </ul>
-</div>
-            <div class="row">
-              <div class="col-6">
-                <div class="clearfix weather-temperature">
-                  <img src="" alt="Clear" id="icon" class="float-left"/>
-                  <div class="float left">
-                <strong id="temp-day"></strong
-                  ><span class="units">F˚</span>
-                  </div>
-                  </div>
-                  </div>
-                  <div class="col=6">
-                    <ul>
-                <li>Humidity: <span id="humidity">%</span></li>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="clearfix weather-temperature">
+                <img src="" alt="Clear" id="icon" class="float-left" />
+                <div class="float-left">
+                  <strong id="temperature"></strong
+                  ><span class="units" class="active"><a href="#" id="c-link">˚C</a> | <a href="#" id="f-link">˚F</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
                 <li>Wind: <span id="wind"></span>m/h</li>
               </ul>
-              </div>
-              </div>
-          <hr/>
+            </div>
+          </div>
           <h5>5 Day Outlook</h5>
         <div class="row">
           <div class="col-sm border">
@@ -86,22 +95,22 @@
             <p>☀️</p>
             <p>89-95°</p>
           </div>
-        </div>
-        </div>
+          <small
+            ><a
+              id="github-link"
+              href="https://github.com/taymick13/Weather-Application"
+            >
+              GitHub</a
+            >
+            Coded by Taylor Mickelson</small
+          >
         </div>
       </div>
-        </div>
-        <small> <a
-    id="github-link"
-    href="https://github.com/taymick13/Weather-Application">
-    GitHub</a>
-        </small>
     </div>
-</div>
+    <script src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/0e4adee97a.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
-  <script src="script.js"></script>
-  <script
-    src="https://kit.fontawesome.com/0e4adee97a.js"
-    crossorigin="anonymous"
-  ></script>
 </html>
