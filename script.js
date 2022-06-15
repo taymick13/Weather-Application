@@ -36,10 +36,10 @@ function showWeather(response) {
   let humidityElement = document.querySelector("#humidity");
   let iconElement = document.querySelector("#icon");
 
-  celciusTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.main.temp;
 
   cityName.innerHTML = response.data.name;
-  tempDay.innerHTML = Math.round(celciusTemperature);
+  tempDay.innerHTML = Math.round(celsiusTemperature);
   descriptionElement.innerHTML = response.data.weather[0].main;
   windElement.innerHTML = response.data.wind.speed;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -61,32 +61,32 @@ function handleSubmit(event) {
   let input = document.querySelector("#weather");
   searchCity(input.value);
 }
-function showFahreinheitTemperature(event) {
+function showFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  celciusLink.classList.remove("active");
-  fahreinheitLink.classList.add("active");
-  let fahreinheitTemperature = (celciusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahreinheitTemperature);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
-function showCelciusTemperature(event) {
+function showCelsiusTemperature(event) {
   event.preventDefault();
-  celciusLink.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-let celciusTemperature = null;
+let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let fahrenheitLink = document.querySelector("#fahreinheitLink");
-fahrenheitLink.addEventListener("click", showFahreinheitTemperature);
+let fahrenheitLink = document.querySelector("#fahrenheitLink");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
-let celciusLink = document.querySelector("#celciusLink");
-celciusLink.addEventListener("click", showCelciusTemperature);
+let celsiusLink = document.querySelector("#celsiusLink");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 searchCity("Nashville");
