@@ -21,12 +21,33 @@ function formatDate(date) {
 
   return `${day} ${hours}:${minutes}`;
 }
-let dateElement = document.querySelector("#date");
-let currentDate = new Date();
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
 
-dateElement.innerHTML = formatDate(currentDate);
+  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
 
-//weather
+  let forecastHTML = `<div class ="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+    <div class="weather-forecast-date"> ${day}</div>
+    <img
+      src=https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid=${apiKey}&units=metric"
+      alt = ""
+      width ="42" />
+      <div class="weather-forecast-temperatures">
+      <span="weather-forecast-temperature-max"> 18˚ </span>
+      <span="weather-forecast-temperature-min"> 12˚ </span> 
+      </div>
+      </div>
+      `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showWeather(response) {
   console.log(response.data);
   let cityName = document.querySelector("#city-name");
@@ -80,6 +101,11 @@ function showCelsiusTemperature(event) {
 
 let celsiusTemperature = null;
 
+let dateElement = document.querySelector("#date");
+let currentDate = new Date();
+
+dateElement.innerHTML = formatDate(currentDate);
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
@@ -90,3 +116,4 @@ let celsiusLink = document.querySelector("#celsiusLink");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 searchCity("Nashville");
+displayForecast();
