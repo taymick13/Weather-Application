@@ -19,9 +19,9 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-
   return `${day} ${hours}:${minutes}`;
 }
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -37,29 +37,34 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-
-  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
-
   let forecastHTML = `<div class ="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col-2">
-    <div class="weather-forecast-date"> ${day}</div>
+    <div class="weather-forecast-date"> ${formateDay(forecastDay.dt)}</div>
     <img
-      src=https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid=${apiKey}&units=metric"
+    src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
       alt = ""
       width ="42" />
       <div class="weather-forecast-temperatures">
-      <span="weather-forecast-temperature-max"> 18˚ </span>
-      <span="weather-forecast-temperature-min"> 12˚ </span> 
+      <span="weather-forecast-temperature-max"> ${Math.round(
+        forecastDay.temp.max
+      )}˚ </span>
+      <span="weather-forecast-temperature-min"> ${Math.round(
+        forecastDay.temp.min
+      )}˚ </span> 
       </div>
       </div>
       `;
+    }
   });
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
@@ -71,7 +76,6 @@ function getForecast(coordinates) {
 }
 
 function showWeather(response) {
-  console.log(response.data);
   let cityName = document.querySelector("#city-name");
   let tempDay = document.querySelector("#temp-day");
   let descriptionElement = document.querySelector("#description");
@@ -124,11 +128,6 @@ function showCelsiusTemperature(event) {
 }
 
 let celsiusTemperature = null;
-
-let dateElement = document.querySelector("#date");
-let currentDate = new Date();
-
-dateElement.innerHTML = formatDate(currentDate);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
